@@ -1,7 +1,7 @@
 {
   "name": "on-change-network",
   "description": "detect when computer changes (wifi) networks",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/dominictarr/on-change-network",
   "repository": {
     "type": "git",
