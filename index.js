@@ -12,18 +12,20 @@ function each (network) {
   }, [])
 }
 
-module.exports = function (onNetwork) {
+module.exports = function (onNetwork, ref) {
   var init = each(os.networkInterfaces()).join(',')
-  return setInterval(function (e) {
+  var int = setInterval(function (e) {
     var cur = each(os.networkInterfaces()).join(',')
     if(init !== cur)
       onNetwork(init = cur)
   }, 1000)
+
+  if(!ref) int.unref()
 }
 
 if(!module.parent)
   module.exports(function (addrs) {
     console.log(addrs)
-  })
+  }, true)
 
 
