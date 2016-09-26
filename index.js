@@ -20,7 +20,8 @@ module.exports = function (onNetwork, ref) {
       onNetwork(init = cur)
   }, 1000)
 
-  if(!ref) int.unref()
+  //unreference the counter (only on node)
+  if(!ref && int.unref) int.unref()
 }
 
 if(!module.parent)
