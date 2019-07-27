@@ -1,11 +1,11 @@
 var os = require('os')
 
 function each (network) {
-  return Object.keys(network).map(function (interface) {
-    return network[interface].filter(function (e) {
+  return Object.keys(network).map(function (networkInterface) {
+    return network[networkInterface].filter(function (e) {
       return !e.internal
     }).map(function (e) {
-      return interface+'/'+e.address
+      return networkInterface+'/'+e.address
     })
   }).reduce(function (a, b) {
     return a.concat(b)
